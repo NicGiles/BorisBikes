@@ -6,8 +6,10 @@ attr_reader :rack
 
 DEFAULT_CAPACITY = 20
 
-  def initialize
+  def initialize(capacity = DEFAULT_CAPACITY)
     @rack = [Bike.new]
+    @capacity = capacity
+
   end
 
   def release_bike
@@ -22,7 +24,7 @@ DEFAULT_CAPACITY = 20
 
   private
   def full?
-    @rack.length >= DEFAULT_CAPACITY
+    @rack.length >= @capacity
   end
 
   def empty?
