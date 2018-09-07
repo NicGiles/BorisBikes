@@ -24,7 +24,6 @@ describe DockingStation do
     #expect(subject.dock_bike).to be_an_instance_of(Bike)
   #end
 
-
   it { should respond_to (:dock_bike) }
 
 end
