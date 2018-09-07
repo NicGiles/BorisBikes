@@ -8,15 +8,15 @@ describe DockingStation do
 
 it "has the capacity to hold 20 bikes" do
   a = DockingStation.new
-  18.times {a.dock_bike Bike.new}
-  expect {a.dock_bike Bike.new}.to_not raise_error
+  #18.times {a.dock_bike Bike.new}
+  expect {DockingStation::DEFAULT_CAPACITY-1.times{a.dock_bike Bike.new}}.to_not raise_error
 end
 
 
 it 'Cannot hold more than 20 bikes' do
   a = DockingStation.new
-  19.times{a.dock_bike Bike.new}
-  expect {a.dock_bike Bike.new}.to raise_error("This dock is full :(")
+  #19.times{a.dock_bike Bike.new}
+  expect {DockingStation::DEFAULT_CAPACITY.times{a.dock_bike Bike.new}}.to raise_error("This dock is full :(")
 end
 
   it "it true" do
