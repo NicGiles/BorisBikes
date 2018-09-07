@@ -9,16 +9,13 @@ attr_reader :bike
   end
 
   def release_bike
-  @available_bikes = @bike
-  unless @available_bikes > 1
-    raise "there are no bikes"
-    end
-  @bike
+    raise "there are no bikes" if @bike == nil
+    @bike = nil
   end
 
   def dock_bike
-    if @available_bikes == 0
-      @bike = bike
+    if @bike == nil
+      @bike = Bike.new
     else
       return "This dock is full :("
     end
